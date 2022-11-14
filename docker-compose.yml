@@ -4,7 +4,7 @@ services:
     build: .
     restart: always
     volumes:
-      - ./db.sqlite3:/db.sqlite3
-      - ./backups:/backups
+      - /path/to/vaultwarden/files/:/vault
+      - /path/to/vaultwarden/backups:/backups
     env_file:
-      - .env
+      - /path/to/backup.env
