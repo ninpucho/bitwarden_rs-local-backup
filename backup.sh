@@ -22,8 +22,13 @@ cp -a '/vault/rsa_key.*' '/tmp/$(BACKUP_FOLDER)/'
 # backup icon cache folder
 cp -ar '/vault/icon_cache' '/tmp/$(BACKUP_FOLDER)/'
 
-# backuo sends folder
+# backup sends folder
 cp -ar '/vault/sends' '/tmp/$(BACKUP_FOLDER)/'
+
+# If config file exists backup.
+if [[ -f "/vault/config.json" ]]; then
+    cp -a '/vault/config,json' '/tmp/$(BACKUP_FOLDER)/'
+fi
 
 # tar up backup and encrypt with openssl and encryption key
 tar -czf - /tmp/$(BACKUP_FOLDER) | openssl enc -e -aes256 -salt -pbkdf2 -pass pass:${BACKUP_ENCRYPTION_KEY} -out /backups/${BACKUP_FILE}.tar.gz
