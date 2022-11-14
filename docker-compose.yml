@@ -4,7 +4,7 @@ services:
     build: .
     restart: always
     volumes:
-      - /path/to/vaultwarden/files/:/vault
+      - /path/to/vaultwarden/files/:/vault:ro
       - /path/to/vaultwarden/backups:/backups
     env_file:
       - /path/to/backup.env
