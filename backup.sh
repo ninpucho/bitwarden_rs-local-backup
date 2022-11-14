@@ -27,7 +27,7 @@ cp -ar '/vault/sends' '/tmp/$(BACKUP_FOLDER)/'
 
 # If config file exists backup.
 if [[ -f "/vault/config.json" ]]; then
-    cp -a '/vault/config,json' '/tmp/$(BACKUP_FOLDER)/'
+    cp -a '/vault/config.json' '/tmp/$(BACKUP_FOLDER)/'
 fi
 
 # tar up backup and encrypt with openssl and encryption key
